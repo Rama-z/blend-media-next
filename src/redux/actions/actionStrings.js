@@ -15,5 +15,6 @@ export const actionStrings = {
   deleteFromFavorite: "DELETE_FROM_FAVORITE",
   addToCart: "ADD_TO_CART",
   deleteFromCart: "DELETE_FROM_CART",
+  createTransaction: "CREATE_TRANSACTION",
   getHistory: "GET_TRANSACTIONS_HISTORY",
 };

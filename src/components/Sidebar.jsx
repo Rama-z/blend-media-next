@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ModalDeleteProduct from "./ModalDeleteProduct";
 
-export default function Sidebar() {
+export default function Sidebar({ id }) {
   const router = useRouter();
   const content = [
     "Informasi Akun",
@@ -16,11 +16,12 @@ export default function Sidebar() {
   const [modal, setModal] = useState(false);
   return (
     <section className="flex flex-col w-1/6 px-8 py-32">
-      {content.map((item) => {
+      {content.map((item, idx) => {
         return (
           <>
             <div
               className="py-3 border-b-2 border-gray cursor-pointer"
+              key={idx}
               onClick={() => {
                 if (item === "Informasi Akun") {
                   router.push("/profile");

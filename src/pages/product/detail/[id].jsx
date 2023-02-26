@@ -9,11 +9,13 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import productAction from "@/redux/actions/product";
 import ModalDeleteProduct from "@/components/ModalDeleteProduct";
+import profileAction from "@/redux/actions/profile";
 
 export default function ProductDetail() {
   const router = useRouter();
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
+  const cart = useSelector((state) => state.profile.cart);
   const product = useSelector((state) => state.product.detail);
   const [count, setCount] = useState(1);
   const [modal, setModal] = useState(false);
@@ -116,16 +118,7 @@ export default function ProductDetail() {
                 +
               </button>
             </div>
-            {!auth.userData.roles === "admin" ? (
-              <>
-                <button className="bg-black text-white py-3">
-                  Tambah Ke Keranjang
-                </button>
-                <button className="bg-gray-800 text-white py-3">
-                  Ambil Di Toko
-                </button>
-              </>
-            ) : (
+            {auth.userData.roles === "admin" ? (
               <>
                 <button
                   className="bg-black text-white py-3"
@@ -142,6 +135,42 @@ export default function ProductDetail() {
                   }}
                 >
                   Delete Product
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  className="bg-black text-white py-3"
+                  onClick={() => {
+                    const found = cart.find(
+                      (item) => item.id === product.uniq_id
+                    );
+                    if (found?.id === product.uniq_id) return;
+                    dispatch(
+                      profileAction.addToCart([
+                        ...cart,
+                        {
+                          id: product.uniq_id,
+                          brand: product.brand,
+                          name: product.product_name,
+                          price: product.product_price,
+                          info: product.product_info,
+                          quantity: count,
+                          image: product.product_image_url,
+                        },
+                      ])
+                    );
+                  }}
+                >
+                  Tambah Ke Keranjang
+                </button>
+                <button
+                  className="bg-gray-800 text-white py-3"
+                  onClick={() => {
+                    dispatch(profileAction.deleteFromCart());
+                  }}
+                >
+                  Ambil Di Toko
                 </button>
               </>
             )}

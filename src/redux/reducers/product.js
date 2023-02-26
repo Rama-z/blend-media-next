@@ -12,8 +12,14 @@ const initialState = {
 
 const productReducer = (prevState = initialState, { payload, type }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { createProduct, getProduct, getDetail, editProduct, deleteProduct } =
-    actionStrings;
+  const {
+    createProduct,
+    getProduct,
+    getDetail,
+    editProduct,
+    deleteProduct,
+    addToFavorite,
+  } = actionStrings;
   switch (type) {
     case getProduct.concat("_", Pending):
       return {
@@ -130,6 +136,7 @@ const productReducer = (prevState = initialState, { payload, type }) => {
         isError: false,
         isFulfilled: true,
       };
+
     default:
       return prevState;
   }

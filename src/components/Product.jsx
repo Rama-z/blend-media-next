@@ -3,10 +3,23 @@ import React, { useState } from "react";
 import Sample from "@/assets/image/homepage.jpg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import profileAction from "@/redux/actions/profile";
 
-export default function ProductBox({ image, price, name, info, brand, id }) {
+export default function ProductBox({
+  image,
+  price,
+  name,
+  info,
+  brand,
+  id,
+  favorites,
+}) {
   const router = useRouter();
-  const [favorite, setFavorite] = useState(false);
+  const dispatch = useDispatch();
+  const [favorite, setFavorite] = useState(favorites);
+  const favoriteItem = useSelector((state) => state.profile.favorite);
+  const body = [...favoriteItem];
 
   return (
     <>
@@ -31,7 +44,26 @@ export default function ProductBox({ image, price, name, info, brand, id }) {
         </section>
         <section className="flex justify-end p-3">
           <FavoriteIcon
-            onClick={() => setFavorite(!favorite)}
+            onClick={() => {
+              setFavorite(favorite ? false : true);
+              if (!favorite) {
+                const filtered = favoriteItem.filter((item) => item.id === id);
+                if (filtered[0]?.id === id) return;
+                body.push({
+                  image,
+                  price,
+                  name,
+                  info,
+                  brand,
+                  id,
+                  favorites: true,
+                });
+                dispatch(profileAction.addToFavorite(body));
+                return;
+              }
+              const filtered = favoriteItem.filter((item) => item.id !== id);
+              dispatch(profileAction.addToFavorite(filtered));
+            }}
             className={`${
               favorite ? "text-red-500" : "text-gray-400"
             } cursor-pointer`}

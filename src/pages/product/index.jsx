@@ -42,6 +42,7 @@ export default function Product() {
                   name={item.product_name}
                   id={item.uniq_id}
                   brand={item.brand}
+                  favorites={item.favorites}
                 />
               </>
             );

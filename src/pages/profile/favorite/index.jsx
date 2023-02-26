@@ -1,12 +1,14 @@
+import FavoriteItem from "@/components/Favorite";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Favorite() {
   const router = useRouter();
-  const [visibility, setVisibility] = useState(false);
+  const favoriteItem = useSelector((state) => state.profile.favorite);
   return (
     <>
       <Header />
@@ -14,123 +16,18 @@ export default function Favorite() {
         <Sidebar />
         <section className="flex flex-col gap-5 border-2 border-gray p-10 w-5/6 m-20">
           <div className="text-lg font-bold">FAVORITE</div>
-          <div>
-            <div className="text-sm font-bold pb-2">USERNAME</div>
-            <input
-              className="w-full border-2 border-gray p-2"
-              placeholder="Input your name"
-              type="text"
-              name="username"
-              // onChange={changeHandler}
-            />
-          </div>
-          <div>
-            <div className="text-sm font-bold pb-2">EMAIL</div>
-            <input
-              className="w-full border-2 border-gray p-2"
-              type="text"
-              name="email"
-              placeholder="Input your email"
-              disabled
-            />
-          </div>
-          <div>
-            <div className="text-sm font-bold pb-2">ADDRESS</div>
-            <input
-              className="w-full border-2 border-gray p-2"
-              type="text"
-              name="address"
-              // onChange={changeHandler}
-              placeholder="Input your address"
-            />
-          </div>
-          <div>
-            <div className="text-sm font-bold pb-2">GENDER</div>
-            <div className="flex gap-5 ">
-              <input
-                type="radio"
-                id="male"
-                value="male"
-                name="gender"
-                // onClick={() => setBody({ ...body, gender: "male" })}
-              />
-              <label htmlFor="female">Male</label>
-              <input
-                type="radio"
-                id="female"
-                value="female"
-                name="gender"
-                // onClick={() => setBody({ ...body, gender: "female" })}
-              />
-              <label htmlFor="female">Female</label>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="text-sm font-bold pb-2">PASSWORD</div>
-            <input
-              className="w-full border-2 border-gray p-2"
-              type={visibility ? "text" : "password"}
-              name="password"
-              // onChange={changeHandler}
-              placeholder="Input your password"
-            />
-            {/* {visibility ? (
-              <VisibilityIcon
-                onClick={() => {
-                  setVisibility(!visibility);
-                }}
-                className="absolute top-10 right-4 cursor-pointer"
-              />
-            ) : (
-              <VisibilityOffIcon
-                onClick={() => {
-                  setVisibility(!visibility);
-                }}
-                className="absolute top-10 right-4 cursor-pointer"
-              />
-            )} */}
-          </div>
-          <div className="relative">
-            <div className="text-sm font-bold pb-2">CONFIRM PASSWORD</div>
-            <input
-              className="w-full border-2 border-gray p-2"
-              type={confirm ? "text" : "password"}
-              name="confirm"
-              placeholder="Confirm your password"
-              // onChange={changeHandler}
-            />
-            {/* {confirm ? (
-              <VisibilityIcon
-                onClick={() => {
-                  setConfirm(!confirm);
-                }}
-                className="absolute top-10 right-4 cursor-pointer"
-              />
-            ) : (
-              <VisibilityOffIcon
-                onClick={() => {
-                  setConfirm(!confirm);
-                }}
-                className="absolute top-10 right-4 cursor-pointer"
-              />
-            )} */}
-          </div>
-          <button
-            className="text-white bg-black p-3"
-            // onClick={registerHandler}
-          >
-            CREATE NEW ACCOUNT
-          </button>
-          <div className="flex justify-center gap-2">
-            <div>Already have an account?</div>
-            <div
-              className="font-bold cursor-pointer"
-              onClick={() => {
-                router.push("/auth/login");
-              }}
-            >
-              Login Here
-            </div>
+          <div className="flex flex-wrap justify-start gap-3">
+            {favoriteItem.map((item) => {
+              return (
+                <>
+                  <FavoriteItem
+                    image={item.image}
+                    name={item.name}
+                    id={item.id}
+                  />
+                </>
+              );
+            })}
           </div>
         </section>
       </main>

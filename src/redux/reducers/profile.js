@@ -13,7 +13,14 @@ const initialState = {
 
 const profileReducer = (prevState = initialState, { payload, type }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { getProfile, editProfile } = actionStrings;
+  const {
+    getProfile,
+    editProfile,
+    addToCart,
+    addToFavorite,
+    deleteFromCart,
+    deleteFromFavorite,
+  } = actionStrings;
   switch (type) {
     case getProfile.concat("_", Pending):
       return {
@@ -62,75 +69,41 @@ const profileReducer = (prevState = initialState, { payload, type }) => {
         isFulfilled: true,
       };
 
-    // case getDetail.concat("_", Pending):
-    //   return {
-    //     ...prevState,
-    //     isLoading: true,
-    //     isError: false,
-    //     isFulfilled: false,
-    //   };
-    // case getDetail.concat("_", Rejected):
-    //   return {
-    //     ...prevState,
-    //     isLoading: false,
-    //     isError: true,
-    //     isFulfilled: false,
-    //     err: payload.error.message,
-    //   };
-    // case getDetail.concat("_", Fulfilled):
-    //   return {
-    //     ...prevState,
-    //     isLoading: false,
-    //     isError: false,
-    //     isFulfilled: true,
-    //     detail: payload.data.data,
-    //   };
+    case addToCart.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        cart: payload.data,
+      };
 
-    // case createProduct.concat("_", Pending):
-    //   return {
-    //     ...prevState,
-    //     isLoading: true,
-    //     isError: false,
-    //     isFulfilled: false,
-    //   };
-    // case createProduct.concat("_", Rejected):
-    //   return {
-    //     ...prevState,
-    //     isLoading: false,
-    //     isError: true,
-    //     isFulfilled: false,
-    //     err: payload.error.message,
-    //   };
-    // case createProduct.concat("_", Fulfilled):
-    //   return {
-    //     ...prevState,
-    //     isLoading: false,
-    //     isError: false,
-    //     isFulfilled: true,
-    //   };
+    case addToFavorite.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        favorite: payload.data,
+      };
 
-    // case deleteProduct.concat("_", Pending):
-    //   return {
-    //     ...prevState,
-    //     isLoading: true,
-    //     isError: false,
-    //     isFulfilled: false,
-    //   };
-    // case deleteProduct.concat("_", Rejected):
-    //   return {
-    //     ...prevState,
-    //     isLoading: false,
-    //     isError: true,
-    //     isFulfilled: false,
-    //     err: payload.error.message,
-    //   };
-    // case deleteProduct.concat("_", Fulfilled):
-    //   return {
-    //     ...prevState,
-    //     isLoading: false,
-    //     isError: false,
-    //     isFulfilled: true,
-    //   };
+    case deleteFromCart.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        cart: [],
+      };
+
+    case deleteFromFavorite.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        favorite: [],
+      };
     default:
       return prevState;
   }
