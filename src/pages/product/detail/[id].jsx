@@ -116,7 +116,7 @@ export default function ProductDetail() {
                 +
               </button>
             </div>
-            {auth.userData.roles === "customer" ? (
+            {!auth.userData.roles === "admin" ? (
               <>
                 <button className="bg-black text-white py-3">
                   Tambah Ke Keranjang
