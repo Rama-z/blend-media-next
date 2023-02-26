@@ -19,9 +19,7 @@ export default function Product() {
       <Header />
       <main className="min-h-screen">
         <section
-          className={
-            auth.userData.roles === "customer" ? "hidden" : "pt-10 px-10"
-          }
+          className={auth.userData.roles === "admin" ? "pt-10 px-10" : "hidden"}
         >
           <button
             className="border-black border-2 rounded-xl p-2"
