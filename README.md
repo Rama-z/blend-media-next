@@ -2,10 +2,11 @@
 
 <div align="center">
 
-[![next](https://img.shields.io/npm/v/next?label=next)](https://www.npmjs.com/package/next)
-[![axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
-[![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
-[![MUI](https://img.shields.io/npm/v/redux?label=MUI)](https://www.npmjs.com/package/MUI)
+[![Next.js](https://img.shields.io/npm/v/next?label=next)](https://www.npmjs.com/package/next)
+[![Axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
+[![React-Redux](https://img.shields.io/npm/v/react-redux?label=react-redux)](https://www.npmjs.com/package/react-redux)
+[![MUI](https://img.shields.io/npm/v/mui?label=MUI)](https://www.npmjs.com/package/MUI)
+[![Tailwind](https://img.shields.io/npm/v/tailwind?label=tailwind)](https://www.npmjs.com/package/tailwind)
 
 <br/>
 
