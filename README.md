@@ -1,20 +1,16 @@
-# Zappay: E-Wallet With NextJS
+# Blend-Media Front-End: E-Commerce With NextJS
 
 <div align="center">
 
 [![react-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
 [![axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
-[![chart.js](https://img.shields.io/npm/v/chart.js?label=chart.js)](https://www.npmjs.com/package/chart.js)
-[![craco](https://img.shields.io/npm/v/craco?label=craco)](https://www.npmjs.com/package/craco)
-[![lottie-react](https://img.shields.io/npm/v/lottie-react?label=lottie-react)](https://www.npmjs.com/package/lottie-react)
-[![moment](https://img.shields.io/npm/v/moment?label=moment)](https://www.npmjs.com/package/moment)
 [![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
 
 <br/>
 
 </div>
 
-Zappay is a digital system that stores a person’s payment information.
+Blend-Media is a digital e-commerce that we sell everything there.
 
 ## Contents
 
@@ -29,11 +25,22 @@ Zappay is a digital system that stores a person’s payment information.
 
 - Login
 - Register
-- Forgot Password
-- Transfer
-- Transfer History
+- Logout
+- List Product
+- Product Detail
+- Favorite
+- Cart
+- Checkout
+- Get Profile
 - Edit Profile
-- Dashboard
+
+### Admin
+
+- Login
+- Logout
+- Create Product
+- Edit Product
+- Delete Product
 
 ## How to Run the Application
 
@@ -58,7 +65,7 @@ $ npm install
 Configure .env file by create file named .env inside project folder and add this line to the file:
 
 ```
-NEXT_PUBLIC_BACKEND_URL = "https://fazzpay-rose.vercel.app"
+NEXT_PUBLIC_BACKEND_URL = "https://blend-media.vercel.app"
 ```
 
 ### 4. Run projects
@@ -75,22 +82,22 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-You can try to login with
-email: Mindcontrolled10@gmail.com
-password: coba
+You can try to login with <br/>
+email: Capriconous@gmail.com <br/>
+password: 12345678
 
 ## Deployment
 
-[Vercel deploy link](https://zwallet-next.vercel.app/)
+[Vercel deploy link](https://blend-media-next.vercel.app/)
 
 ## Screenshots
 
 <div align="center">
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/landingpage.png" alt="Landing page">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/Homepage.png" alt="Landing page">
 
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/login.png" alt="Login page">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/Login.png" alt="Login page">
 
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/dashboard.png" alt="Dashboard">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/dashboard.png" alt="Dashboard">
 
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/zappay/main/public/images/history.png" alt="Transfer history">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/product.png" alt="Product">
 </div>
