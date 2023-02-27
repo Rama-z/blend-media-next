@@ -13,7 +13,7 @@ export default function History() {
       <main className="font-RedHat w-screen flex">
         <Sidebar />
         <section className="flex flex-col gap-5 border-2 border-gray p-10 w-5/6 m-20">
-          <div className="text-lg font-bold">HISTORY</div>
+          <div className="text-lg font-bold">HISTORY*not done yet</div>
           <div>
             <div className="text-sm font-bold pb-2">USERNAME</div>
             <input
