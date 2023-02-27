@@ -99,5 +99,5 @@ password: 12345678
 
 <img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/dashboard.png" alt="Dashboard">
 
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/product.png" alt="Product">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/Product.png" alt="Product">
 </div>
