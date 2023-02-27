@@ -2,9 +2,10 @@
 
 <div align="center">
 
-[![react-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
+[![next](https://img.shields.io/npm/v/next?label=next)](https://www.npmjs.com/package/next)
 [![axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
 [![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
+[![MUI](https://img.shields.io/npm/v/redux?label=MUI)](https://www.npmjs.com/package/MUI)
 
 <br/>
 
