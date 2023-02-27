@@ -103,3 +103,7 @@ password: 12345678
 
 <img width="500" src="https://raw.githubusercontent.com/Rama-z/blend-media-next/main/public/images/Product.png" alt="Product">
 </div>
+
+## Authors
+
+- [@Rama-z](https://github.com/Rama-z)
