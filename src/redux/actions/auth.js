@@ -40,7 +40,7 @@ const registerFulfilled = (data) => ({
   payload: { data },
 });
 
-const loginThunk = (body, cbSuccess) => {
+const loginThunk = (body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(loginPending());
@@ -50,12 +50,12 @@ const loginThunk = (body, cbSuccess) => {
       typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(loginRejected(error));
-      typeof cbDenied === "function" && cbDenied();
+      typeof cbDenied === "function" && cbDenied(error);
     }
   };
 };
 
-const logoutThunk = (token, cbSuccess) => {
+const logoutThunk = (token, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(logoutPending());
@@ -64,12 +64,12 @@ const logoutThunk = (token, cbSuccess) => {
       typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(logoutRejected(error));
-      typeof cbDenied === "function" && cbDenied();
+      typeof cbDenied === "function" && cbDenied(error);
     }
   };
 };
 
-const registerThunk = (body, cbSuccess) => {
+const registerThunk = (body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(registerPending());
@@ -79,7 +79,7 @@ const registerThunk = (body, cbSuccess) => {
       typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(registerRejected(error));
-      typeof cbDenied === "function" && cbDenied();
+      typeof cbDenied === "function" && cbDenied(error);
     }
   };
 };

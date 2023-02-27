@@ -6,6 +6,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useDispatch } from "react-redux";
 import authAction from "@/redux/actions/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
   const router = useRouter();
@@ -24,7 +26,10 @@ export default function Register() {
     const success = () => {
       router.push("/auth/login");
     };
-    dispatch(authAction.registerThunk(body, success));
+    const failed = (err) => {
+      toast.success(`Login Failed ${err}, Try again`);
+    };
+    dispatch(authAction.registerThunk(body, success, failed));
   };
   return (
     <>

@@ -6,6 +6,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useDispatch } from "react-redux";
 import authAction from "@/redux/actions/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const router = useRouter();
@@ -15,9 +17,13 @@ export default function Login() {
 
   const loginHandler = () => {
     const success = () => {
+      toast.success("Login success!");
       router.push("/");
     };
-    dispatch(authAction.loginThunk(body, success));
+    const failed = (err) => {
+      toast.success(`Login Failed ${err}, Try again`);
+    };
+    dispatch(authAction.loginThunk(body, success, failed));
   };
 
   return (
